@@ -17,6 +17,51 @@ song and backwards buttons.
 
 I chose this project because I think an mp3 bluetooth player that has the songs stored offline can be helpful when there is no internet access.
 ## Architecture 
+### Raspberry Pi Pico 2W
+
+Acts as the main microcontroller.
+
+Connected to various GPIOs for peripherals like buttons, SD card, and LED.
+
+### SD Card Reader
+
+Connected via SPI:
+
+CS, SCK, MOSI, MISO
+
+For reading audio or data files.
+
+### MH-M28 Bluetooth Audio Module 
+
+Handles audio output over Bluetooth.
+
+Connected to 5V, GND, and analog outputs (L, R).
+
+Includes AGND for audio ground isolation.
+
+Volume control via potentiometer.
+
+### Potentiometer 
+
+Connected to the audio module for analog volume control.
+
+### Push Buttons (SW1, SW2, SW3)
+
+Functions:
+
+SW1: Pause/Play
+
+SW2: Next Song
+
+SW3: Previous Song
+
+Connected to GPIOs of the RP2040.
+
+### LED Indicator 
+
+LED with a current-limiting resistor (220Ω).
+
+Used for indicating if the song is paused or playing.
 ![Schematic diagram](schema.webp)
 
 
@@ -32,7 +77,12 @@ I chose this project because I think an mp3 bluetooth player that has the songs 
 
 ## Hardware
 
-Detail in a few words the hardware used.
+1xRaspberry pi pico 2W
+1xSd card reader module
+1x MH-M28 bluetooth transimtter
+1xPotentiometer
+3xPush buttons
+1xLED
 
 ### Schematics
 
